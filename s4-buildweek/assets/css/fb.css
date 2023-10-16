@@ -1,32 +1,28 @@
 body {
     font-family: 'Outfit', 'Helvetica Neue', sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.4em;
     background-image: url(../img/bg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    text-align: center;
+    color: white;
+    line-height: 50px;
 }
 
 *{
     box-sizing: border-box;
 }
-html {
-    font-size: 62.5%;
-}
 
 h4 {
-    font-size: 5rem;
+    font-size: 2.5em;
 }
 
 h5 {
     font-size: 2.2rem;
 }
 
-h6 {
-    font-size: 2rem;
-}
-
 p {
-    font-size: 1.2rem;
+    font-size: 1.3em;
 }
 
 img {
@@ -37,13 +33,28 @@ img {
     width: 15%;
     padding: 20px;
     margin-left: 10em;
-    margin-top: 50px;
+    margin-top: 30px;
+}
+
+#container{
+    margin-top: 2.5em;
+}
+
+.fb-text{
+margin: 40px;
+}
+
+.fb-text h4{
+    margin: 20px;
+    font-weight: bold;
 }
 
 .container-star {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 2em;
+    
 }
 
 .container-star .fb-star input{
@@ -54,7 +65,7 @@ img {
     color: #0b113b;
     transition: all 0.2s ease;
     float: right;
-    font-size: 30px;
+    font-size: 50px;
     padding: 5px;
 }
 
@@ -70,4 +81,21 @@ input:checked ~ label{
 input#star-10:checked ~ label{
     color: #fe7;
      text-shadow: 0 0 20px #952;
+}
+
+.fd-foo-text{
+    margin-top: 4.2em;
+}
+
+.fd-foo-text input{
+width: 45%;
+height: 35px;
+background: transparent;
+border: none;
+border-bottom: 2px solid #c2128d;
+color: white;
+padding-left: 25px;
+outline: 0;
+font-size: 1rem;
+margin-top: 4em;
 }
