@@ -1,0 +1,45 @@
+body{
+    background-image: url(../img/bg.jpg);
+    background-size: cover;
+    text-align: center;
+    font-size: 20px;
+}
+/*************************************************
+*   Benchmark 
+* * */
+/*************************************************
+*   Domande/risposte
+* * */  
+.blocco-domande{
+    color:white;
+    width:1500px;
+    margin: auto;
+}
+
+.domanda{
+    margin: 30px;
+    font-size: 2em;
+}
+
+.risposte{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.risposta{
+    border-radius: 30px;
+    width:700px;
+    height: 40px;
+    margin:0 30px 30px 0;
+    border:3px solid grey;
+    background-color: rgba(255,255,255,0.1);
+    border-bottom: none;
+    padding-top:20px;
+}
+/*******************************
+*   footer benchmark
+* * */
+.footer-benchark{
+    position:relative;
+    
+}
