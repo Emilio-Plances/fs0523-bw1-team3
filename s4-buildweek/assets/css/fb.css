@@ -1,0 +1,73 @@
+body {
+    font-family: 'Outfit', 'Helvetica Neue', sans-serif;
+    font-size: 1.4rem;
+    background-image: url(../img/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+*{
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+
+h4 {
+    font-size: 5rem;
+}
+
+h5 {
+    font-size: 2.2rem;
+}
+
+h6 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+img {
+    width: 100%;
+}
+
+#logo {
+    width: 15%;
+    padding: 20px;
+    margin-left: 10em;
+    margin-top: 50px;
+}
+
+.container-star {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-star .fb-star input{
+    display: none;
+}
+
+.fb-star label{
+    color: #0b113b;
+    transition: all 0.2s ease;
+    float: right;
+    font-size: 30px;
+    padding: 5px;
+}
+
+input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover ~ label{
+    color: #00ffff;
+}
+
+input:checked ~ label{
+    color: #00ffff;
+}
+
+input#star-10:checked ~ label{
+    color: #fe7;
+     text-shadow: 0 0 20px #952;
+}
