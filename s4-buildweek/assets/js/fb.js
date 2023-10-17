@@ -22,8 +22,11 @@ if (resetButton) {
     resetButton.addEventListener('click', function () {
         resetCommentField(); 
         resetStarRating(); 
-        alert("Grazie per il FeedBack");
+        Swal.fire({
+            icon: 'success',
+            title: 'Grazie per il FeedBack',
+            
+          })
     });
-} 
-
+}
 
