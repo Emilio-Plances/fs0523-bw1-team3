@@ -122,11 +122,11 @@ margin-top: 4em;
     border: none;
 }
 
-.button{
+#button{
     margin-left: 10px;
 }
 
-.button button{
+#button button{
     padding: 20px 50px;
     background: transparent;
     border: none;
@@ -136,12 +136,12 @@ margin-top: 4em;
     font-weight: bold
 }
 
-.button button:hover{
+#button button:hover{
     color: #0b113b;
     background-color: #00ffff;
     border: none;
     cursor: pointer;
 }
-.button button i{
+#button button i{
     margin-left: 5px;
 }
