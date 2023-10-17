@@ -15,6 +15,7 @@ body{
     color:white;
     width:1500px;
     margin: auto;
+    margin-top:100px;
     position: relative;
 }
 
@@ -38,6 +39,10 @@ body{
     background-color: rgba(255,255,255,0.1);
     border-bottom: none;
     padding-top:20px;
+}
+
+.risposta:hover{
+  cursor: pointer;
 }
 /*******************************
 *   footer benchmark
@@ -64,3 +69,73 @@ body{
     background-color: rgba(0,0,0,0);
     right:0;
 }
+/****************************
+*   Timer
+* * */
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dashoffset: 560px;
+  }
+}
+.timer{
+  display: inline-block;
+  width:300px;
+  height: 300px;
+  margin-left: 100em;
+  margin-top:100px;
+}
+.countdown {
+    
+    position: relative;
+    margin: auto;
+    
+    height: 100px;
+    width: 50px;
+    text-align: center;
+  }
+
+  .countdown-number {
+    color: white;
+    position: absolute;
+    font-size: 1.4em;
+    top: 40px;
+    right:45px;
+  }
+  .countdown-number span{
+    font-size:2em;
+    font-weight: bold;
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    transform: rotateY(-180deg) rotateZ(-90deg);
+
+  }
+
+  svg circle {
+    stroke-dasharray: 560px;
+    stroke-dashoffset: 0px;
+    stroke-linecap: round;
+    stroke-width: 20px;
+    stroke: #9b1d8e;
+    fill: none;
+    animation: countdown 60s linear infinite;
+  }
+  
+  .white-circle{
+    border-radius: 50%;
+    border: 18px solid rgba(255,255,255,0.8);
+    width:162px; 
+    height: 162px;
+    position: absolute;
+    right: 2px;
+    top:1px;
+    z-index: -1;
+  }
