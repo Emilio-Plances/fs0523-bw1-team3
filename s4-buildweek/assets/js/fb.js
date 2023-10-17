@@ -1,9 +1,9 @@
 
 
-function resetCommentField() {
-    const commentField = document.querySelector('input[name="text"]');
-    if (commentField) {
-        commentField.value = ''; 
+function resetCommento() {
+    const commento = document.querySelector('input[name="text"]');
+    if (commento) {
+        commento.value = ''; 
     }
 }
 
@@ -20,7 +20,7 @@ function resetStarRating() {
 const resetButton = document.getElementById('button');
 if (resetButton) {
     resetButton.addEventListener('click', function () {
-        resetCommentField(); 
+        resetCommento(); 
         resetStarRating(); 
         Swal.fire({
             icon: 'success',
