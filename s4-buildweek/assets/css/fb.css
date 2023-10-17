@@ -120,6 +120,7 @@ margin-top: 4em;
     color: #0b113b;
     background-color: #00ffff;
     border: none;
+    box-shadow: 0 0 10px #00FFFF;
 }
 
 #button{
@@ -141,7 +142,9 @@ margin-top: 4em;
     background-color: #00ffff;
     border: none;
     cursor: pointer;
+    box-shadow: 0 0 10px #00FFFF;
 }
+
 #button button i{
     margin-left: 5px;
 }
