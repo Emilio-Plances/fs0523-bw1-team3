@@ -1,51 +1,48 @@
-const welcomeSection=document.querySelector(`.welcomeSection`);
-const checkbox = welcomeSection.querySelector('.checkbox');
+const Epiquestion=document.querySelector(`#Epiquestion`)
+const welcomeSection=Epiquestion.querySelector(`.welcomeSection`);
+const checkbox = welcomeSection.querySelector('#checkbox');
 const button = welcomeSection.querySelector('.button');
-const containerBenchmark=document.querySelector(`.container-benchmark`)
+const containerBenchmark=Epiquestion.querySelector(`.container-benchmark`)
 const countdownNumber = containerBenchmark.querySelector('.countdown-number span');
-const reset=containerBenchmark.querySelector(`button`);
+
 const circle=containerBenchmark.querySelector(`circle`);
 const domanda=containerBenchmark.querySelector(`.domanda`);
-const nextQuestion=containerBenchmark.querySelector(`.next-question`);
+const nextQuestion=containerBenchmark.querySelector(`.button`);
 const risposte=containerBenchmark.querySelector(`.risposte`);
 const questionCounter=containerBenchmark.querySelector(`.question-counter p`);
 let risposteEsatte=0;
 let countdown = 60;
-
+let i=0;
 /***********************************************
  *  WELCOME
  * * */
 
 checkbox.addEventListener('change', function() {
     if(checkbox.checked){
-        button.classList.add ('abled');
+        button.classList.add ('able');
     }else{ 
-        button.classList.remove ('abled')};
+        button.classList.remove ('able')};
 });
 
 button.addEventListener(`click`,()=>{
-    if(!button.classList.contains(`abled`)){
+    if(!button.classList.contains(`able`)){
         return;
     }
     welcomeSection.remove()
     containerBenchmark.classList.remove(`hidden`);
-    countdown=60;
-    circle.getAnimations().forEach((anim) => {
-      anim.cancel();
-      anim.play();
-    });
 })
+
 /**************************************************
  *  BENCHMARK
  */
 countdownNumber.innerText = countdown;
-reset.addEventListener(`click`,()=>{
-  countdown=60;
-  circle.getAnimations().forEach((anim) => {
-    anim.cancel();
-    anim.play();
-  });
-})
+
+setInterval(function() {
+  if(i<10 && !containerBenchmark.classList.contains(`hidden`)){
+    countdown = --countdown < 0 ? 60 : countdown;
+    countdownNumber.innerText = countdown;
+  }
+}, 1000);
 
 /**************************************************+
  *  Sezione domande
@@ -54,16 +51,8 @@ reset.addEventListener(`click`,()=>{
 fetch(`https://opentdb.com/api.php?amount=10&category=18&difficulty=easy`)
 .then(res=>res.json())
 .then(res=>{
+
   let domande=res.results;
-  let i=0;
-  
-  if(i<10 && !containerBenchmark.classList.contains(`hidden`)){
-    setInterval(function() {
-      countdown = --countdown < 0 ? 60 : countdown;
-      countdownNumber.innerText = countdown;
-    }, 1000);
-  }
- 
   console.log(domande);
   next(i,domande);
   setInterval(function() {
@@ -72,25 +61,35 @@ fetch(`https://opentdb.com/api.php?amount=10&category=18&difficulty=easy`)
       next(i,domande);
     }
   }, 1000);
-
   domanda.innerHTML=domande[i].question;
 
   nextQuestion.addEventListener(`click`,()=>{
+    let sceltaFatta=getRisposta();
+
+    if(sceltaFatta==''){
+      return;
+    }
+
+    circle.getAnimations().forEach((anim) => {
+    anim.cancel();
+    anim.play();
+  });
+
     i++; 
-    
     countdown=61;
-    next(i,domande);
+    next(i,domande,sceltaFatta);
     console.log(risposteEsatte);
     if(i==10){
       containerBenchmark.remove();
+      //containerResult.classList.remove(`hidden`);
       return;
     } 
   })
 })
 
-function next(i,myArray) {
+function next(i,myArray,sceltaFatta) {
   let newArray=[];
-  controlloRisposta(myArray,i);
+  controlloRisposta(myArray,i,sceltaFatta);
   if(i>=myArray.length)
     return;
   if(i<=myArray.length){
@@ -105,7 +104,7 @@ function next(i,myArray) {
   while(risposte.firstChild){
     risposte.removeChild(risposte.firstChild);
   }
-
+  nextQuestion.classList.remove(`able`);
   newArray.forEach(element=>{
     let risposta=document.createElement(`div`);
     risposta.classList.add(`risposta`);
@@ -122,22 +121,25 @@ function rispostaButton(risposta,risposte) {
       element.style.backgroundColor=``;
     })
     risposta.style.backgroundColor=`#900080`;
+    nextQuestion.classList.add(`able`);
   })
   
 }
 
-function controlloRisposta(myArray,i){
+function controlloRisposta(myArray,i,sceltaFatta){
+  if(i>0 && i<=10){
+    if(myArray[i-1].correct_answer == sceltaFatta.innerText){
+      risposteEsatte++;
+    }
+  }
+}
 
-  let rispostaData=`     `;
+function getRisposta() {
+  let rispostaData=``;
   Array.from(risposte.childNodes).forEach(element=>{
      if(element.style.backgroundColor==`rgb(144, 0, 128)`){
       rispostaData=element;
      }
   })
-  
-  if(i>0 && i<=10){
-    if(myArray[i-1].correct_answer == rispostaData.innerText){
-      risposteEsatte++
-    }
-  }
+  return rispostaData;
 }
