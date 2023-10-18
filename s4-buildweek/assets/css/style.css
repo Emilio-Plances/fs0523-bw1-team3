@@ -1,6 +1,10 @@
 
 /*roba di Barbara*/
 
+/****************************************
+*   Generali
+* * */
+
 html {
     font-size: 62.5%;
 }
@@ -46,7 +50,7 @@ img {
     max-height: 100%;
 }
 
-body .section {
+.welcomeSection {
     color: white;
     padding-left: 80px;
 }
@@ -60,6 +64,9 @@ body .section {
     padding-top: 30px;
 }
 
+/**************************************************
+*   Welcome Section
+* * */
 
 .container {
     display: flex;
@@ -86,7 +93,7 @@ body .section {
     display: flex;
     width: 180px;
     height: 65px;
- }
+}
 
 .button {
     cursor:auto;
@@ -125,5 +132,7 @@ body .section {
     line-height: 0.8;
 }
 
-/*fine roba di Barbara*/
+/*************************************
+*   fine Welcome Section
+* * */
 
