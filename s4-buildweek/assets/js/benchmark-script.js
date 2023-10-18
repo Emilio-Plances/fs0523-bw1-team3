@@ -1,11 +1,11 @@
 let containerBenchmark=document.querySelector(`.container-benchmark`)
-let countdownNumber = document.querySelector('.countdown-number span');
-let reset=document.querySelector(`button`);
-let circle=document.querySelector(`circle`);
-let domanda=document.querySelector(`.domanda`);
-let nextQuestion=document.querySelector(`.next-question`);
-let risposte=document.querySelector(`.risposte`);
-let questionCounter=document.querySelector(`.question-counter p`);
+let countdownNumber = containerBenchmark.querySelector('.countdown-number span');
+let reset=containerBenchmark.querySelector(`button`);
+let circle=containerBenchmark.querySelector(`circle`);
+let domanda=containerBenchmark.querySelector(`.domanda`);
+let nextQuestion=containerBenchmark.querySelector(`.next-question`);
+let risposte=containerBenchmark.querySelector(`.risposte`);
+let questionCounter=containerBenchmark.querySelector(`.question-counter p`);
 let risposteEsatte=0;
 let countdown = 60;
 
@@ -35,8 +35,6 @@ fetch(`https://opentdb.com/api.php?amount=10&category=18&difficulty=easy`)
     }, 1000);
   }
  
-
-  
   console.log(domande);
   next(i,domande);
   setInterval(function() {
@@ -100,7 +98,7 @@ function rispostaButton(risposta,risposte) {
 }
 
 function controlloRisposta(myArray,i){
-  
+
   let rispostaData=`     `;
   Array.from(risposte.childNodes).forEach(element=>{
      if(element.style.backgroundColor==`rgb(144, 0, 128)`){
