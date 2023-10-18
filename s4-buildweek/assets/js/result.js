@@ -1,3 +1,7 @@
+let containerResult = document.querySelector(".container-result");
+let buttonResult = containerResult.querySelector("button");
+
+
 const risultati = []
 risultati[0]= 20
 risultati[1]=80
@@ -24,4 +28,10 @@ new Chart(myChart, {
             cutout: 135
         },
 
+ });
+
+
+ buttonResult.addEventListener('click',() =>{
+    containerResult.remove();
+    return;
  });
