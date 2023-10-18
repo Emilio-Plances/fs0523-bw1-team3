@@ -17,7 +17,7 @@ function resetStarRating() {
     }
 }
 
-const resetButton = document.getElementById('button');
+const resetButton = document.querySelector('.button');
 if (resetButton) {
     resetButton.addEventListener('click', function () {
         resetCommento(); 
