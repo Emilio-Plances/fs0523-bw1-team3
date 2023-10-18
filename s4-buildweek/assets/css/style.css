@@ -92,42 +92,52 @@ body .section {
     height: 15px;
     margin-right: 10px;
     
-    
- 
  }
   
- .checkmark {
-    background-color: transparent;
- }
-    
-    
  
+    
+ .proceed {
+    display: flex;
+    width: 180px;
+    height: 65px;
+ }
 
-.pulsante a {
-  
-    
+.button:hover{
+    cursor: pointer;
+    color: #0B113B;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
     background-color: #00FFFF;
-    text-align: center;
-    padding: 40px;
-    padding-top: 10px;
-    padding-bottom: 10px;
     box-shadow: 0 0 10px #00FFFF;
+    border: none;
+
    }
-  
 
+   
+   .button.disabled:hover {  
+    cursor:auto;
+    color: #0B113B;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: transparent;
+    border: 2px solid white;
+    box-shadow: none;
+    color: white;}
+    
 
-.proceed {
-    width: 100px;
-}
+   .button {
+    cursor:auto;
+    color: #0B113B;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+   }
 
-
-  .link{
-  color: #0B113B;
-  text-decoration: none;
-  font-weight: bold;
-
-  
-  }
 
   .subtitle {
     color: #C2128D;
