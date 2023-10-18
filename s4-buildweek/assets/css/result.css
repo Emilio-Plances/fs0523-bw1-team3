@@ -16,6 +16,7 @@ body {
 
 }
 
+
 .titolo {
     color: white;
     text-align: center;
@@ -36,9 +37,10 @@ body {
 
 .correct {
     padding: 20px;
-    margin-top: 120px;
-    text-align: left;
+    margin: 150px 250px 0 250px;
+    text-align: center;
     color: white;
+    align-items: center;
 
 }
 
@@ -53,12 +55,8 @@ body {
     padding: 18em;
     margin-top: 120px;
     margin-bottom: 120px;
-    text-align: right;
     color: white;
     position: absolute;
-   /* top: 50%;
-    right: 0;
-    transform: translate(0, -50%);*/
 }
 
 .wrong h4 {
@@ -78,7 +76,8 @@ body {
 
   .container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+
   }
 
   .item {
@@ -105,3 +104,10 @@ body {
     color: white;
   }
  
+/*donut*/
+
+.chart-container{
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
