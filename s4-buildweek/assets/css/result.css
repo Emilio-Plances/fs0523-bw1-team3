@@ -1,113 +1,105 @@
-img {
-    padding: 20px;
-    margin-left: 8em;
-    margin-top:30px;   
-    width: 15%;
-}
-
 body {
-
-    background-image: url(../img/bg.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    font-family: 'Outfit', 'Helvetica Neue', sans-serif;
-    line-height: 35px;
-    
-
+  background-image: url(../img/bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: Helvetica Neue, sans-serif;
+  line-height: 35px;
 }
 
+img {
+  padding: 20px;
+  margin-left: 8em;
+  margin-top:30px;   
+  width: 10%;
+}
 
 .titolo {
-    color: white;
-    text-align: center;
+  color: white;
+  text-align: center;
 }
 
 .titolo h4  {
-    font-weight: bold;
-    font-size: 3.5em;
+  font-weight: bold;
+  font-size: 3em;
 }
 
 .titolo h5 {
-
-    margin: 20px;
-    font-size: 20px;
-
+  font-size: 27px;
+  padding-top: 10px;
 }
 
-
 .correct {
-    padding: 20px;
-    margin: 150px 250px 0 250px;
-    text-align: center;
-    color: white;
-    align-items: center;
+  margin: 150px 150px 0 150px;
+  text-align: center;
+  color: white;
+  align-items: center;
+  line-height: 50px;
+  text-align: start;
+}
 
+.correct.item{
+  text-align: right;
+  line-height: 57px;
+  
 }
 
 .correct h4 {
-    font-size: 30px;
-    font-weight: bold;
-
+  font-size: 3.5em;
 }
 
-
-.wrong {
-    padding: 18em;
-    margin-top: 120px;
-    margin-bottom: 120px;
-    color: white;
-    position: absolute;
+.correct h5{
+  font-weight: bold;
+  font-size: 3.5em;
 }
 
-.wrong h4 {
- font-size:30px ;
- font-weight: bold;
-}
-  
-  .child {
-    background: orange;
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    top:50%;
-    left: 50%;
-    margin: -50px 0 0 -50px; 
-  }
-
-  .container {
-    display: flex;
-    justify-content: space-between;
-
-  }
-
-  .item {
-
-   
-    flex-direction: row;
+.correct h6{
+font-size: 24px;
 }
 
+.child {
+  background: orange;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  margin: -50px 0 0 -50px; 
+}
 
-.button {
+.container {
+  display: inline-flex;
+  margin-left: 17em;
+}
 
-    text-align: center;
-    color: white;
-    background: none;
-    border: solid white 1px;
-    width: 100px;
-    margin: 0 auto;
-    margin-top: 100px;
-  }
+.button{
+  text-align: center;
+  margin-top: 55px;
+}
 
-  .button button {
-    background: none;
-    border: none;
-    color: white;
-  }
- 
+.button button{
+  padding: 20px 70px;
+  background: transparent;
+  border: none;
+  border: 2px solid white;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.button button:hover{
+  color: #0b113b;
+  background-color: #00ffff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00FFFF;
+}
+
 /*donut*/
 
 .chart-container{
   width: 400px;
   margin: 0 auto;
   margin-top: 50px;
+ 
 }

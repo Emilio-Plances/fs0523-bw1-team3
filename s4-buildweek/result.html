@@ -8,47 +8,37 @@
     <title>Document</title>
 </head>
 <body>
-
-    <header>
-        <div id="logo">
-            <img src="assets/img/epicode_logo.png" alt="epicodelogo">
-        </div>
-        </header>
-
-        <div class="titolo">
-            <h4> Results</h4>
-            <h5>The summary of your answers:</h5>
-        </div>
-
-        <div class="container">
-
-            <div class="correct" class="item">
-                <h4>Correct</h4>
-                <h4>66.7%</h4>
-                <h5>4/6 questions</h5>
-            </div>
-
-
-                <div class="chart-container">
-                    <canvas class="my-chart"></canvas>
-                </div>
-            
-                
-            <div class="correct" class="item">
-                <h4>Wrong</h4>
-                <h4>33.3%</h4>
-                <h5>2/6 questions</h5>
-            </div>
-        </div>
         
-        <div class="button"><button>RATE US</button>
-            
+    <img src="assets/img/epicode_logo.png" alt="epicodelogo">
+        
+    <div class="titolo">
+        <h4> Results</h4>
+        <h5>The summary of your answers:</h5>
+    </div>
+
+    <div class="container">
+        <div class="correct">
+            <h4>Correct</h4>
+            <h5>66.7%</h5>
+            <h6>4/6 questions</h6>
         </div>
-        
-        
-        
+<!-- Inizio donut-->
+        <div class="chart-container">
+            <canvas class="my-chart"></canvas>
+        </div>
+<!-- Fine donut-->            
+        <div class="correct item" >
+            <h4>Wrong</h4>
+            <h5>33.3%</h5>
+            <h6>2/6 questions</h6>
+        </div>
+    </div>
+       
+    <div class="button">
+        <button>RATE US</button>          
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="assets/js/donut.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 </html> 
