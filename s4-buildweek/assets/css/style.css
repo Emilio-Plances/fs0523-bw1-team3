@@ -1,0 +1,64 @@
+/*! STILI GENERALI */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Outfit:wght@400;700&display=swap');
+
+
+/*! BUTTON GENERAL */
+.nextPoint {
+    background-color: #00ffff;
+    color: rgb(20, 0, 69);
+    font-size: 1.2rem;
+    border: 0;
+    font-weight: bold;
+    padding: 15px 50px;
+    box-shadow: #00ffff 0 -5px 15px, #00ffff 0 5px 15px;
+}
+
+.nextPoint:hover {
+    background-color: #00ffff;
+    color: white;
+    cursor: pointer;
+}
+
+.startButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*! FONT */
+.h1 {
+    font-size: 4rem;
+    font-family: 'Outfit', sans-serif;
+}
+
+.h2 {
+    font-size: 3rem;
+}
+
+.h3 {
+    font-size: 1.5rem;
+}
+
+.h4 {
+    font-size: 1.2rem;
+}
+
+.p {
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.thin {
+    font-family: 'Inter', serif;
+    font-weight: 200;
+}
+
+.bold {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 200;
+}
+
+.bolder {
+    font-weight: 900;
+}
