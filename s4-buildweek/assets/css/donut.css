@@ -1,0 +1,11 @@
+
+body{
+    background-image: url(../img/bg.jpg);
+    background-size: cover;
+}
+.chart-container{
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
