@@ -5,40 +5,15 @@
 *   Generali
 * * */
 
-html {
-    font-size: 62.5%;
-}
-
-body {
+#Epiquestion {
     font-family: 'Outfit', 'Helvetica Neue', sans-serif;
     font-size: 1.4rem;
     line-height: 1.5;
     background-image: url(../img/bg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-}
-
-* {
-    box-sizing: border-box;
-    width: 100%;
-}
-
-h4 {
-    font-size: 5rem;
-}
-
-h5 {
-    font-size: 2.2rem;
-}
-
-h6 {
-    font-size: 2rem;
-}
-
-ul {
-    list-style-type: disc;
-    margin-left: 20px; 
-    margin-top: 30px;
+    height: 100vh;
+    
 }
 
 strong {
@@ -50,11 +25,6 @@ img {
     max-height: 100%;
 }
 
-.welcomeSection {
-    color: white;
-    padding-left: 80px;
-}
-
 .logo img {
     width: 150px; 
 }
@@ -64,9 +34,49 @@ img {
     padding-top: 30px;
 }
 
+.hidden{
+    display:none;
+}
 /**************************************************
 *   Welcome Section
 * * */
+
+.welcomeSection {
+    color: white;
+    margin-left: 4em;
+    width:1000px;
+    line-height: 27px;
+}
+.textContainer{
+    width: 650px;
+}
+.welcomeSection h4 {
+    font-size: 3.4em;
+}
+
+.welcomeSection h5 {
+    font-size: 1.8em;
+}
+
+.welcomeSection h6 {
+    font-size: 2rem;
+}
+
+.text{
+    font-size:0.9em;
+    
+}
+.welcomeSection li{
+    font-size:0.8em;
+}
+.welcomeSection ul {
+    list-style-type: disc;
+    margin-left: 30px; 
+    margin-top: 30px;
+}
+.welcomeSection ul::marker{
+    font-size: 5.5em;
+}
 
 .container {
     display: flex;
@@ -74,44 +84,48 @@ img {
     align-items: center; 
     padding-top: 100px;
     padding-bottom: 100px;
-    max-width: 800px;
+    
   }
   
 .checkbox-container {
     display: flex;
     align-items:center; 
+    font-weight: 200;
+    font-size: 0.8em;
+    width: 1000px;
   }
   
 .checkbox-container input {
     width: 15px;
     height: 15px;
     margin-right: 10px;
-    
 }
-  
+
+.checkbox-container input[type="checkbox"]{
+    background-color: transparent;
+}
+
 .proceed {
     display: flex;
-    width: 180px;
+    width: 550px;
     height: 65px;
+    margin-left: 300px;
 }
 
 .button {
-    cursor:auto;
-    color: #0B113B;
-    text-decoration: none;
+    box-sizing: border-box;
+    width: 100%;
     font-size: 1.5rem;
     font-weight: bold;
     background: transparent;
     border: 2px solid white;
     color: white;
+    padding:15px;
 }
 
 .abled:hover{
     cursor: pointer;
     color: #0B113B;
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
     background-color: #00FFFF;
     box-shadow: 0 0 10px #00FFFF;
     border: none;
@@ -135,4 +149,140 @@ img {
 /*************************************
 *   fine Welcome Section
 * * */
+/*************************************************
+*   Benchmark 
+* * */
+/*************************************************
+*   Domande/risposte
+* * */  
+.blocco-domande{
+    color:white;
+    width:800px;
+    height:300px;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 150px;
+    text-align: center;
+}
 
+.domanda{
+    margin-bottom: 30px;
+    font-size: 1.7em;
+}
+
+.risposte{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+}
+
+.risposta{
+    border-radius: 30px;
+    width:350px;
+    height: 50px;
+    margin:0 30px 30px 0;
+    border:3px solid grey;
+    background-color: rgba(255,255,255,0.1);
+    border-bottom: none;
+    padding-top:20px;
+}
+
+.risposta:hover{
+  cursor: pointer;
+}
+/*******************************
+*   footer benchmark
+* * */
+.footer-benchmark{
+    position:relative;
+    display: flex;
+    width:1400px;
+    height: 100px;
+    margin:auto;
+}
+.question-counter{
+    color:white;
+    position: absolute;
+    left:0;
+    font-weight:bolder;
+}
+.question-counter span{
+    color:purple;
+}
+.next-question{
+    width:300px;
+    font-weight: bold;
+    position: absolute;
+    right:0;
+}
+/****************************
+*   Timer
+* * */
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dashoffset: 560px;
+  }
+}
+.timer{
+  display: inline-block;
+  width:300px;
+  height: 300px;
+  margin-left: 60em;
+  
+}
+
+.countdown { 
+    position: relative;
+    margin: auto;
+    height: 100px;
+    width: 50px;
+    text-align: center;
+}
+
+.countdown-number {
+    color: white;
+    position: absolute;
+    font-size: 1em;
+    top: 35px;
+    right:50px;
+
+  }
+
+.countdown-number span{
+    text-align: center;
+    font-size:2em;
+    font-weight: bold;
+  }
+
+svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    transform: rotateY(-180deg) rotateZ(-90deg);
+}
+
+svg circle {
+    stroke-dasharray: 560px;
+    stroke-dashoffset: 0px;
+    stroke-linecap: round;
+    stroke-width: 20px;
+    stroke: #9b1d8e;
+    fill: none;
+    animation: countdown 60s linear infinite;
+}
+  
+.white-circle{
+    border-radius: 50%;
+    border: 18px solid rgba(255,255,255,0.8);
+    width:162px; 
+    height: 162px;
+    position: absolute;
+    right: 2px;
+    top:1px;
+    z-index: -1;
+}
