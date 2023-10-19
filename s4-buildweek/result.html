@@ -1,51 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/result.css">
     <title>Document</title>
 </head>
 <body>
-
-    <header>
-        <div id="logo">
-            <img src="assets/img/epicode_logo.png" alt="epicodelogo">
-        </div>
-        </header>
-
+    <!--Inizio Result-->
+    <img src="assets/img/epicode_logo.png" alt="epicodelogo">
+    
+    <div class="container-result">
         <div class="titolo">
             <h4> Results</h4>
             <h5>The summary of your answers:</h5>
         </div>
-
+    
         <div class="container">
-
-            <div class="correct" class="item">
+            <div class="correct">
                 <h4>Correct</h4>
-                <h4>66.7%</h4>
-                <h5>4/6 questions</h5>
+                <h5>66.7%</h5>
+                <h6>4/6 questions</h6>
             </div>
-
-            <div>
-                <div class="child" class="item"></div>
+    <!-- Inizio donut-->
+            <div class="chart-container">
+                <canvas class="my-chart"></canvas>
             </div>
-
-            <div class="correct" class="item">
+    <!-- Fine donut-->            
+            <div class="correct item" >
                 <h4>Wrong</h4>
-                <h4>33.3%</h4>
-                <h5>2/6 questions</h5>
+                <h5>33.3%</h5>
+                <h6>2/6 questions</h6>
             </div>
         </div>
-
-
-        <div class="button"><button>RATE US</button>
-       
+           
+        <div class="button">
+            <button>RATE US</button>          
         </div>
+    </div>
+<!--Fine Result-->
+<!--Inizio FeedBack-->
+
+<div class="container-fb-result hidden">
+    <div class="container-fb">
+        <div class="fb-text">
+            <h4>Tell us how it's going</h4>
+            <p>From 0 to 10, how likely are you to recommend EPICODE to a friend or a colleague?</p>
+        </div>
+    
+        <div class="container-star">
+            <div class="fb-star">
+                <input type="radio" name="star" id="star-10">
+                <label for="star-10" class="fas fa-star"></label>
+            
+                <input type="radio" name="star" id="star-9">
+                <label for="star-9" class="fas fa-star"></label>
+            
+                <input type="radio" name="star" id="star-8">
+                <label for="star-8" class="fas fa-star"></label>
+            
+                <input type="radio" name="star" id="star-7">
+                <label for="star-7" class="fas fa-star"></label>
+            
+                <input type="radio" name="star" id="star-6">
+                <label for="star-6" class="fas fa-star"></label>
+            
+                <input type="radio" name="star" id="star-5">
+                <label for="star-5" class="fas fa-star"></label>
+            
+                <input type="radio" name="star" id="star-4">
+                <label for="star-4" class="fas fa-star"></label>
+            
+                <input type="radio" name="star" id="star-3">
+                <label for="star-3" class="fas fa-star"></label>
+            
+                <input type="radio" name="star" id="star-2">
+                <label for="star-2" class="fas fa-star"></label>
+            
+                <input type="radio" name="star" id="star-1">
+                <label for="star-1" class="fas fa-star"></label>
+            </div>
+        </div>
+        <div class="fd-foo-text">
+            <p>Leave us on open feedback about your experience so far</p>
+            <input type="text" name="text" placeholder="Write your comment here (Facoltativo)">
+        </div>
+        <div class="fb-sez-button">
+            <div class="info">
+                <a href="#">MORE INFO</a>
+            </div>
+            <div class="button-fb">
+                <button>SUBMIT <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Fine FeedBack-->
 
 
 
-    <script src="assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/result.js"></script>
 </body>
 </html> 
