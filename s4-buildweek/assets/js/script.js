@@ -9,6 +9,7 @@ const domanda=containerBenchmark.querySelector(`.domanda`);
 const nextQuestion=containerBenchmark.querySelector(`.button`);
 const risposte=containerBenchmark.querySelector(`.risposte`);
 const questionCounter=containerBenchmark.querySelector(`.question-counter p`);
+const boxSpoiler=containerBenchmark.querySelector(`.box-spoiler`)
 const containerResult = document.querySelector(".container-result");
 const buttonResult = containerResult.querySelector("button");
 const myChart = containerResult.querySelector('.my-chart');
@@ -54,7 +55,7 @@ countdownNumber.innerText = countdown;
  *  Sezione domande
  * * */
 
-fetch(`https://opentdb.com/api.php?amount=10&category=18&difficulty=easy`)
+fetch(`https://opentdb.com/api.php?amount=20&category=18&difficulty=hard`)
 .then(res=>res.json())
 .then(res=>{
 
@@ -64,7 +65,7 @@ fetch(`https://opentdb.com/api.php?amount=10&category=18&difficulty=easy`)
   domanda.innerHTML=domande[i].question;
 
   setInterval(function() {
-    if(i<10 && !containerBenchmark.classList.contains(`hidden`)){
+    if(i<domande.length && !containerBenchmark.classList.contains(`hidden`)){
       if(countdown==0){
         countdown=61;
         let sceltaFatta=getRisposta();
@@ -90,7 +91,7 @@ fetch(`https://opentdb.com/api.php?amount=10&category=18&difficulty=easy`)
     i++; 
     countdown=61;
     next(i,domande,sceltaFatta);
-    if(i==10){
+    if(i==domande.length){
       containerBenchmark.remove();
       containerResult.classList.remove(`hidden`);
       result(domande);
@@ -139,11 +140,19 @@ function rispostaButton(risposta,risposte) {
 }
 
 function controlloRisposta(myArray,i,sceltaFatta){
-
-  if(i>0 && i<=10){
+  if(i>0 && i<=myArray.length){
+    let spoilerRisposta=document.createElement(`div`);
+    spoilerRisposta.classList.add(`spoiler-risposta`);
+    spoilerRisposta.innerText=i;
     if(myArray[i-1].correct_answer == sceltaFatta.innerText){
       risposteEsatte++;
+      spoilerRisposta.style.backgroundColor=`green`;
+      boxSpoiler.append(spoilerRisposta);
+    }else{
+      spoilerRisposta.style.backgroundColor=`red`;
+      boxSpoiler.append(spoilerRisposta);
     }
+    
   }
 }
 
