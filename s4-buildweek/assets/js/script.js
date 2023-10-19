@@ -9,6 +9,16 @@ const domanda=containerBenchmark.querySelector(`.domanda`);
 const nextQuestion=containerBenchmark.querySelector(`.button`);
 const risposte=containerBenchmark.querySelector(`.risposte`);
 const questionCounter=containerBenchmark.querySelector(`.question-counter p`);
+const containerResult = document.querySelector(".container-result");
+const buttonResult = containerResult.querySelector("button");
+const myChart = containerResult.querySelector('.my-chart');
+const slotEsatte=containerResult.querySelector(`.correct`);
+const slotErrate=containerResult.querySelector(`.wrong`);
+const resultText=containerResult.querySelector(`.result-text`);
+const containerFb = Epiquestion.querySelector(".container-fb-result");
+const resetButton = containerFb.querySelector('.button-fb');
+const fbStar=containerFb.querySelector('.fb-star');
+const fbTextInput=containerFb.querySelector(`.fd-foo-text input`)
 let risposteEsatte=0;
 let countdown = 60;
 let i=0;
@@ -38,12 +48,7 @@ button.addEventListener(`click`,()=>{
  */
 countdownNumber.innerText = countdown;
 
-setInterval(function() {
-  if(i<10 && !containerBenchmark.classList.contains(`hidden`)){
-    countdown = --countdown < 0 ? 60 : countdown;
-    countdownNumber.innerText = countdown;
-  }
-}, 1000);
+
 
 /**************************************************+
  *  Sezione domande
@@ -54,15 +59,23 @@ fetch(`https://opentdb.com/api.php?amount=10&category=18&difficulty=easy`)
 .then(res=>{
 
   let domande=res.results;
-  console.log(domande);
+  
   next(i,domande);
+  domanda.innerHTML=domande[i].question;
+
   setInterval(function() {
-    if(countdown==0){
-      i++;
-      next(i,domande);
+    if(i<10 && !containerBenchmark.classList.contains(`hidden`)){
+      if(countdown==0){
+        countdown=61;
+        let sceltaFatta=getRisposta();
+        i++;
+        next(i,domande,sceltaFatta); 
+      }
+      countdown--
+      countdownNumber.innerText = countdown;
+      
     }
   }, 1000);
-  domanda.innerHTML=domande[i].question;
 
   nextQuestion.addEventListener(`click`,()=>{
     let sceltaFatta=getRisposta();
@@ -70,20 +83,17 @@ fetch(`https://opentdb.com/api.php?amount=10&category=18&difficulty=easy`)
     if(sceltaFatta==''){
       return;
     }
-
     circle.getAnimations().forEach((anim) => {
     anim.cancel();
     anim.play();
-  });
-
+    });
     i++; 
     countdown=61;
     next(i,domande,sceltaFatta);
-    console.log(risposteEsatte);
     if(i==10){
       containerBenchmark.remove();
-      //containerResult.classList.remove(`hidden`);
-      //RICHIAMO FUNZIONE RESULT
+      containerResult.classList.remove(`hidden`);
+      result(domande);
       return;
     } 
   })
@@ -98,7 +108,7 @@ function next(i,myArray,sceltaFatta) {
     newArray=[...myArray[i].incorrect_answers,myArray[i].correct_answer];
   }
 
-  questionCounter.innerHTML=`Domanda ${i+1} <span>/${myArray.length}</span>`;
+  questionCounter.innerHTML=`Question ${i+1} <span>/${myArray.length}</span>`;
 
   domanda.innerHTML=myArray[i].question;
   newArray.sort();
@@ -129,6 +139,7 @@ function rispostaButton(risposta,risposte) {
 }
 
 function controlloRisposta(myArray,i,sceltaFatta){
+
   if(i>0 && i<=10){
     if(myArray[i-1].correct_answer == sceltaFatta.innerText){
       risposteEsatte++;
@@ -145,3 +156,128 @@ function getRisposta() {
   })
   return rispostaData;
 }
+/*********************************
+ *    Inizio Results
+ * * */
+
+function result(myArray) {
+  let percentualeEsatta=(risposteEsatte*100)/myArray.length;
+  let risposteErrate=myArray.length-risposteEsatte;
+  let percentualeErrata=100-percentualeEsatta;
+  let slotPercentualeEsatto=document.createElement(`h5`);
+  let slotFrazioneEsatto=document.createElement(`h6`);
+  let slotPercentualeErrato=document.createElement(`h5`);
+  let slotFrazioneErrato=document.createElement(`h6`);
+  let titoloResultText=document.createElement(`h6`);
+  let spanResultText=document.createElement(`span`);
+  let pResultText=document.createElement(`p`);
+  
+  const risultati = [percentualeErrata, percentualeEsatta];
+
+  //Inizio Donut
+  new Chart(myChart, {
+      type : 'doughnut',
+      data : {
+          labels : ['Wrong', 'Correct'],
+          datasets : [
+              {
+                  data : risultati,
+                  backgroundColor: ['rgb(194 18 141)' , 'rgb(0 255 255)'],
+                  borderColor: 'transparent',
+              }
+          ]
+      },
+      options:{
+          plugins:{
+              legend: {
+                  display: false
+              }
+          },
+          cutout: 135
+      },
+
+  });
+  //fine Donut
+
+  slotPercentualeEsatto.innerText=`${percentualeEsatta} %`
+  slotFrazioneEsatto.innerText=`${risposteEsatte}/${myArray.length} questions`;
+  
+  slotPercentualeErrato.innerText=`${percentualeErrata} %`
+  slotFrazioneErrato.innerText=`${risposteErrate}/${myArray.length} questions`;
+
+  slotEsatte.append(slotPercentualeEsatto,slotFrazioneEsatto);
+  slotErrate.append(slotPercentualeErrato,slotFrazioneErrato);
+
+  if(risposteEsatte>=6){
+      titoloResultText.innerText=`CONGRATULATIONS!`
+      spanResultText.innerText=`You passed the exam!`
+      pResultText.innerText=`We'll send you the certificate in few minutes. Check your email (including promotions/spam folder)`
+  }else{
+      titoloResultText.innerText=`FAILED!`
+      spanResultText.innerText=`You didn't pass the exam!`
+      pResultText.innerText=`We'll send you the failure certificate in few minutes. Check your email (including promotions/spam folder)`
+  }
+
+  resultText.append(titoloResultText, spanResultText, pResultText);
+}
+
+buttonResult.addEventListener('click',() =>{
+  containerResult.remove();
+  containerFb.classList.remove("hidden");
+  return;
+});
+
+/*********************************
+ *    Fine Results
+ * * */
+
+/*********************************
+ *    Inizio Feedback
+ * * */
+fbStar.addEventListener(`change`,()=>{
+  resetButton.classList.add(`able`);
+})
+
+resetButton.addEventListener('click', function () {
+  if(!resetButton.classList.contains(`able`)){
+    Swal.fire({
+      icon: 'error',
+      title: 'Please leave a feedback',
+    })
+    return;
+  }
+
+  console.log(fbTextInput.value);
+
+  resetCommento(); 
+  resetStarRating(); 
+  resetButton.classList.remove(`able`)
+  Swal.fire({
+    icon: 'success',
+    title: 'Thank for FeedBack',
+  })
+});
+
+function resetCommento() {
+  const commento = containerFb.querySelector('input[name="text"]');
+  if (commento) {
+      commento.value = ''; 
+  }
+}
+
+function resetStarRating() {
+  const starInputs = containerFb.querySelectorAll('input[name="star"]');
+  if (starInputs) {
+      starInputs.forEach(input => {
+          input.checked = false; 
+      });
+  }
+}
+
+/*********************************
+ *    Fine Feedback
+ * * */
+
+/*********************************
+ *    FINE JS
+ * * */

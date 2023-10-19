@@ -10,19 +10,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/img/star.svg">
     <title>Document</title>
 </head>
 <div>
-
     <div id="Epiquestion">   
         <div class="header">
             <div class="logo">
                 <img src="assets/img/epicode_logo.png" alt="epicode_logo">
             </div>
         </div>
-
         <!--inizio sezione Welcome-->
-
         <div class="welcomeSection">
             <div class="textContainer">
                 <h4 class="title">Welcome to <strong>your exam</strong></h4>
@@ -34,7 +32,6 @@
                     <li class="dot">This exam will take approx. <strong>0-5 minutes</strong>.</li>
                 </ul>
             </div>
-
             <div class="container flex">
                 <div class="checkbox-container flex">  
                     <input type="checkbox" id="checkbox">
@@ -45,14 +42,13 @@
                 </div>
             </div>   
         </div>
-
         <!--fine sezione Welcome-->
 
         <!-- Inizio sezione Benchmark-->
         <div class="container-benchmark hidden">
             <div class="timer">
                 <div class="countdown">
-                    <div class="countdown-number">Secondi <span></span> rimanenti</div>
+                    <div class="countdown-number">Seconds <span></span> Remaining</div>
                     <svg>
                     <circle r="90" cx="100" cy="100"></circle>
                     </svg>
@@ -65,15 +61,105 @@
             </div>
             
             <div class="footer-benchmark">
-                <div class="question-counter"><p>DOMANDA 4<span>/10</span></p></div>
+                <div class="question-counter"><p></p></div>
                 <div class="next-question">
-                    <button class="button">Prossima <i class="fas fa-arrow-right"></i></button>
+                    <button class="button">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+            
+        </div>
+        <!--Fine sezione Benchmark -->
+
+        <!--Inizio sezione Results -->
+        <div class="container-result hidden">
+            <div class="titolo">
+                <h4> Results</h4>
+                <h5>The summary of your answers:</h5>
+            </div>
+        
+            <div class="correctResultContainer">
+                <div class="correct ">
+                    <h4>Correct</h4>
+                </div>
+                <!-- Inizio donut-->
+                <div class="chart-container">
+                    <canvas class="my-chart"></canvas>
+                    <div class="result-text"></div>
+                </div>
+                <!-- Fine donut-->            
+                <div class="correct wrong item" >
+                    <h4>Wrong</h4>
+                </div>
+            </div>
+               
+            <div class="proceed-results flex">
+                <button class=" button able">RATE US</button>          
+            </div>
+        </div>
+        <!--Fine Result-->
+
+        <!--Inizio FeedBack-->
+        
+        <div class="container-fb-result hidden">
+            <div class="container-fb">
+                <div class="fb-text">
+                    <h4>Tell us how it's going</h4>
+                    <p>From 0 to 10, how likely are you to recommend EPICODE to a friend or a colleague?</p>
+                </div>
+            
+                <div class="container-star">
+                    <div class="fb-star">
+                        <input type="radio" name="star" id="star-10">
+                        <label for="star-10" class="fas fa-star"></label>
+                    
+                        <input type="radio" name="star" id="star-9">
+                        <label for="star-9" class="fas fa-star"></label>
+                    
+                        <input type="radio" name="star" id="star-8">
+                        <label for="star-8" class="fas fa-star"></label>
+                    
+                        <input type="radio" name="star" id="star-7">
+                        <label for="star-7" class="fas fa-star"></label>
+                    
+                        <input type="radio" name="star" id="star-6">
+                        <label for="star-6" class="fas fa-star"></label>
+                    
+                        <input type="radio" name="star" id="star-5">
+                        <label for="star-5" class="fas fa-star"></label>
+                    
+                        <input type="radio" name="star" id="star-4">
+                        <label for="star-4" class="fas fa-star"></label>
+                    
+                        <input type="radio" name="star" id="star-3">
+                        <label for="star-3" class="fas fa-star"></label>
+                    
+                        <input type="radio" name="star" id="star-2">
+                        <label for="star-2" class="fas fa-star"></label>
+                    
+                        <input type="radio" name="star" id="star-1">
+                        <label for="star-1" class="fas fa-star"></label>
+                    </div>
+                </div>
+                <div class="fd-foo-text">
+                    <p>Leave us on open feedback about your experience so far</p>
+                    <input type="text" name="text" placeholder="Write your comment here (Facoltative)">
+                </div>
+                <div class="fb-sez-button">
+                    <div class="info">
+                        <a href="#">MORE INFO</a>
+                    </div>
+                    <div class="button-fb">
+                        <button class="button able">SUBMIT <i class="fas fa-arrow-right"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
 
-<!--Fine roba di Barbara -->
+

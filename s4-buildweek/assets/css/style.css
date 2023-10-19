@@ -137,6 +137,7 @@ img {
 }
 
 .button {
+    font-family: 'Outfit', 'Helvetica Neue', sans-serif;
     box-sizing: border-box;
     width: 100%;
     font-size: 1.5rem;
@@ -276,13 +277,14 @@ img {
     color: white;
     position: absolute;
     font-size: 1em;
-    top: 35px;
-    right:50px;
+    top: 40px;
+    right:46px;
+    line-height:1.6em;
 }
 
 .countdown-number span{
     text-align: center;
-    font-size:2em;
+    font-size:2.2em;
     font-weight: bold;
 }
 
@@ -316,3 +318,229 @@ svg circle {
     top:1px;
     z-index: 0;
 }
+
+/*****************************
+*   Inizio result
+* * */
+
+.titolo {
+    color: white;
+    text-align: center;
+    position: relative;
+    left: 15px;
+    width: 500px;
+    margin: auto;
+}
+  
+.titolo h4  {
+    font-weight: bold;
+    font-size: 3em;
+}
+  
+.titolo h5 {
+    font-size: 27px;
+    padding-top: 10px;
+}
+  
+.correct {
+    margin: 150px 100px 0 100px;
+    text-align: center;
+    color: white;
+    align-items: center;
+    line-height: 50px;
+    text-align: start;
+}
+  
+.correct h4 {
+    font-size: 3.5em;
+}
+  
+.correct h5{
+    font-weight: bold;
+    font-size: 3.5em;
+    display: block;
+    margin:30px 0;
+}
+  
+.correct h6{
+    font-size: 24px;
+}
+  
+.correctResultContainer{
+    
+    display: flex;
+    margin: 0 auto;
+}
+
+.result-text{
+    position: absolute;
+    top:129px;
+    left:113px;
+    font-size: 0.77em;
+    width: 200px;
+    color: white;
+    font-weight: bold;
+}
+ 
+.result-text span{
+    color:#00ffff
+}
+
+.result-text p{
+    margin-top: 17px;
+    font-weight: lighter;
+    font-size: 0.75em;
+}
+
+.proceed-results{
+    position: relative;
+    left:13px;
+    height: 65px;
+    margin-left: 300px;
+    width:300px;
+    font-weight: bold;
+    margin: 0 auto;
+    margin-top: 75px;
+    
+}
+
+  
+/*****************************
+*   Inizio Donut
+* * */
+
+.chart-container{
+    position: relative;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+/*****************************
+*   Fine Donut
+* * */
+/*****************************
+*   Fine Results
+* * */
+/*****************************
+*   Inizio FeedBack
+* * */
+  
+.container-fb-result{
+    text-align: center;
+    color: white;
+    line-height: 50px;
+}
+  
+.container-fb{
+    margin-top: 2.5em;
+}
+  
+.fb-text{
+    margin: 40px;
+}
+  
+.fb-text h4{
+    margin: 20px;
+    font-weight: bold;
+}
+  
+.container-star {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2em;
+}
+  
+.container-star .fb-star input{
+    display: none;
+}
+  
+.fb-star label{
+    color: #0e164f;
+    transition: all 0.2s ease;
+    float: right;
+    font-size: 50px;
+    padding: 5px;
+}
+  
+.fb-star input:not(:checked) ~ label:hover,
+.fb-star input:not(:checked) ~ label:hover ~ label{
+    color: #00ffff;
+}
+  
+ .fb-star input:checked ~ label{
+    color: #00ffff;
+}
+  
+.fb-star input#star-10:checked ~ label{
+    color: #fe7;
+    text-shadow: 0 0 20px #952;
+}
+  
+.fd-foo-text{
+    margin-top: 4.2em;
+}
+  
+.fd-foo-text input{
+    width: 45%;
+    height: 35px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #c2128d;
+    color: white;
+    padding-left: 25px;
+    outline: 0;
+    font-size: 1rem;
+    margin-top: 4em;
+}
+
+.fb-sez-button{
+    display: flex;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+  
+.info a{
+    text-decoration: none;
+    color: white;
+    border: 2px solid white;
+    padding: 23px 40px;
+    text-align: center;
+    font-weight: bold;
+}
+  
+.info a:hover{
+    color: #0b113b;
+    background-color: #00ffff;
+    border: none;
+    box-shadow: 0 0 10px #00FFFF;
+}
+  
+.button-fb{
+    margin-left: 20px;
+    
+}
+  
+.button-fb button{
+    height: 78px;
+    padding: 20px 50px;
+    font-size: 1em;
+    font-weight: bold;
+}
+  
+
+  
+.button-fb button i{
+    margin-left: 5px;
+}
+
+/*****************************
+*   Fine FeedBack
+* * */
+
+/*****************************
+*   FINE CSS!
+* * */
