@@ -1,70 +1,31 @@
 
 /*roba di Barbara*/
 
-html {
-    font-size: 62.5%;
-}
+/****************************************
+*   Generali
+* * */
 
-body {
+#Epiquestion {
     font-family: 'Outfit', 'Helvetica Neue', sans-serif;
     font-size: 1.4rem;
     line-height: 1.5;
     background-image: url(../img/bg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    ;
-    
-    
+    height: 100vh;
 }
-
-* {
-    box-sizing: border-box;
-    width: 100%;
- 
-}
-
-
-h4 {
-    font-size: 5rem;
-}
-
-
-h5 {
-    font-size: 2.2rem;
-}
-
-h6 {
-    font-size: 2rem;
-}
-
-ul {
-    list-style-type: disc;
-    margin-left: 20px; 
-    margin-top: 30px;
-}
-
 
 strong {
     font-weight: 600;
 }
-
 
 img {
     max-width: 100%;
     max-height: 100%;
 }
 
-
-body .section {
-
-    color: white;
-    padding-left: 80px;
-}
-
 .logo img {
-    width: 150px;
-    
-    
+    width: 150px; 
 }
 
 .logo {
@@ -72,88 +33,514 @@ body .section {
     padding-top: 30px;
 }
 
-
-.container {
+.flex{
     display: flex;
+}
+
+.hidden{
+    display:none;
+}
+
+/**************************************************
+*   Welcome Section
+* * */
+
+.welcomeSection {
+    color: white;
+    margin-left: 4em;
+    width:1000px;
+    line-height: 27px;
+}
+.textContainer{
+    width: 650px;
+}
+.welcomeSection h4 {
+    font-size: 3.4em;
+}
+
+.welcomeSection h5 {
+    font-size: 1.8em;
+}
+
+.welcomeSection h6 {
+    font-size: 2rem;
+}
+
+.text{
+    font-size:0.9em;
+    
+}
+.welcomeSection li{
+    font-size:0.8em;
+}
+.welcomeSection ul {
+    list-style-type: disc;
+    margin-left: 30px; 
+    margin-top: 30px;
+}
+.welcomeSection ul::marker{
+    font-size: 5.5em;
+}
+
+.container{
     justify-content: space-between;
     align-items: center; 
     padding-top: 100px;
     padding-bottom: 100px;
-    max-width: 800px;
+}
+  
+.checkbox-container {
+    align-items:center; 
+    font-weight: 200;
+    font-size: 0.8em;
+    width: 1000px;
   }
   
-  .checkbox-container {
-    display: flex;
-    align-items:center;
-    
-  }
-  
- .checkbox-container input {
-    width: 15px;
-    height: 15px;
-    margin-right: 10px;
-    
- }
-  
- 
-    
- .proceed {
-    display: flex;
-    width: 180px;
-    height: 65px;
- }
+.checkbox-container label{
+    cursor:pointer;
+    display:flex;
+}
 
-.button:hover{
+.checkbox-container input[type="checkbox"]{
     cursor: pointer;
-    color: #0B113B;
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
-    background-color: #00FFFF;
-    box-shadow: 0 0 10px #00FFFF;
-    border: none;
-
-   }
-
-   
-   .button.disabled:hover {  
-    cursor:auto;
-    color: #0B113B;
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
-    background: transparent;
-    border: 2px solid white;
-    box-shadow: none;
-    color: white;}
+    opacity: 0;
+    position: absolute;
     
+}
+.checkbox-container label:before{
+    
+    content: "";
+    width:1em;
+    height:1em;
+    border-radius: 0.15em;
+    border:0.05em solid white;
+    margin-right:0.5em;
+    
+}
 
-   .button {
-    cursor:auto;
-    color: #0B113B;
-    text-decoration: none;
+.checkbox-container label:hover::before,
+.checkbox-container input[type="checkbox"]:hover + label:before{
+    background-color: #C2128D;
+}
+
+.checkbox-container input[type="checkbox"]:checked+label::before{
+    content: "\002714";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.proceed {
+    width: 550px;
+    height: 65px;
+    margin-left: 300px;
+}
+
+.button {
+    font-family: 'Outfit', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+    width: 100%;
     font-size: 1.5rem;
     font-weight: bold;
     background: transparent;
     border: 2px solid white;
     color: white;
-   }
+    padding:15px;
+}
 
+.able:hover{
+    cursor: pointer;
+    color: #0B113B;
+    background-color: #00FFFF;
+    box-shadow: 0 0 10px #00FFFF;
+    border: none;
+}
 
-  .subtitle {
+.subtitle {
     color: #C2128D;
     font-size: 2em;
     font-weight: bold;
     padding-top: 40px;
     padding-bottom: 10px;
-  }
+}
 
-  .title {
+.title {
     padding-top: 80px;
     font-size: 5em;
     max-width: 400px;
     line-height: 0.8;
+}
+
+/*************************************
+*   fine Welcome Section
+* * */
+/*************************************************
+*   Benchmark 
+* * */
+/*************************************************
+*   Domande/risposte
+* * */  
+.blocco-domande{
+    color:white;
+    width:800px;
+    height:300px;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 150px;
+    text-align: center;
+}
+
+.domanda{
+    margin-bottom: 30px;
+    font-size: 1.7em;
+}
+
+.risposte{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+}
+
+.risposta{
+    border-radius: 30px;
+    width:350px;
+    min-height: 50px;
+    margin:0 30px 30px 0;
+    border:3px solid grey;
+    background-color: rgba(255,255,255,0.1);
+    border-bottom: none;
+    padding-top:20px;
+}
+
+.risposta:hover{
+  cursor: pointer;
+}
+
+/*******************************
+*   footer benchmark
+* * */
+.footer-benchmark{
+    position:relative;
+    display: flex;
+    width:1400px;
+    height: 100px;
+    margin:auto;
+}
+
+.question-counter{
+    color:white;
+    position: absolute;
+    left:0;
+    font-weight:bolder;
+}
+
+.question-counter span{
+    color:purple;
+}
+
+.next-question{
+    width:300px;
+    font-weight: bold;
+    position: absolute;
+    right:0;
+}
+
+/****************************
+*   Timer
+* * */
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px;
   }
+  to {
+    stroke-dashoffset: 560px;
+  }
+}
 
-/*fine roba di Barbara*/
+.timer{
+  display: inline-block;
+  width:300px;
+  height: 300px;
+  margin-left: 60em;
+  
+}
 
+.countdown { 
+    position: relative;
+    margin: auto;
+    height: 100px;
+    width: 50px;
+    text-align: center;
+}
+
+.countdown-number {
+    color: white;
+    position: absolute;
+    font-size: 1em;
+    top: 40px;
+    right:46px;
+    line-height:1.6em;
+}
+
+.countdown-number span{
+    text-align: center;
+    font-size:2.2em;
+    font-weight: bold;
+}
+
+svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    transform: rotateY(-180deg) rotateZ(-90deg);
+    z-index: 1;
+}
+
+svg circle {
+    stroke-dasharray: 560px;
+    stroke-dashoffset: 0px;
+    stroke-linecap: round;
+    stroke-width: 20px;
+    stroke: #9b1d8e;
+    fill: none;
+    animation: countdown 60s linear infinite;
+}
+  
+.white-circle{
+    border-radius: 50%;
+    border: 17px solid rgba(255,255,255,0.8);
+    width:162px; 
+    height: 162px;
+    position: absolute;
+    right: 2px;
+    top:1px;
+    z-index: 0;
+}
+
+/*****************************
+*   Inizio result
+* * */
+
+.titolo {
+    color: white;
+    text-align: center;
+    position: relative;
+    left: 15px;
+    width: 500px;
+    margin: auto;
+}
+  
+.titolo h4  {
+    font-weight: bold;
+    font-size: 3em;
+}
+  
+.titolo h5 {
+    font-size: 27px;
+    padding-top: 10px;
+}
+  
+.correct {
+    margin: 150px 100px 0 100px;
+    text-align: center;
+    color: white;
+    align-items: center;
+    line-height: 50px;
+    text-align: start;
+}
+  
+.correct h4 {
+    font-size: 3.5em;
+}
+  
+.correct h5{
+    font-weight: bold;
+    font-size: 3.5em;
+    display: block;
+    margin:30px 0;
+}
+  
+.correct h6{
+    font-size: 24px;
+}
+  
+.correctResultContainer{
+    
+    display: flex;
+    margin: 0 auto;
+}
+
+.result-text{
+    position: absolute;
+    top:129px;
+    left:113px;
+    font-size: 0.77em;
+    width: 200px;
+    color: white;
+    font-weight: bold;
+}
+ 
+.result-text span{
+    color:#00ffff
+}
+
+.result-text p{
+    margin-top: 17px;
+    font-weight: lighter;
+    font-size: 0.75em;
+}
+
+.proceed-results{
+    position: relative;
+    left:13px;
+    height: 65px;
+    margin-left: 300px;
+    width:300px;
+    font-weight: bold;
+    margin: 0 auto;
+    margin-top: 75px;
+    
+}
+
+  
+/*****************************
+*   Inizio Donut
+* * */
+
+.chart-container{
+    position: relative;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+/*****************************
+*   Fine Donut
+* * */
+/*****************************
+*   Fine Results
+* * */
+/*****************************
+*   Inizio FeedBack
+* * */
+  
+.container-fb-result{
+    text-align: center;
+    color: white;
+    line-height: 50px;
+}
+  
+.container-fb{
+    margin-top: 2.5em;
+}
+  
+.fb-text{
+    margin: 40px;
+}
+  
+.fb-text h4{
+    margin: 20px;
+    font-weight: bold;
+}
+  
+.container-star {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2em;
+}
+  
+.container-star .fb-star input{
+    display: none;
+}
+  
+.fb-star label{
+    color: #0e164f;
+    transition: all 0.2s ease;
+    float: right;
+    font-size: 50px;
+    padding: 5px;
+}
+  
+.fb-star input:not(:checked) ~ label:hover,
+.fb-star input:not(:checked) ~ label:hover ~ label{
+    color: #00ffff;
+}
+  
+ .fb-star input:checked ~ label{
+    color: #00ffff;
+}
+  
+.fb-star input#star-10:checked ~ label{
+    color: #fe7;
+    text-shadow: 0 0 20px #952;
+}
+  
+.fd-foo-text{
+    margin-top: 4.2em;
+}
+  
+.fd-foo-text input{
+    width: 45%;
+    height: 35px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #c2128d;
+    color: white;
+    padding-left: 25px;
+    outline: 0;
+    font-size: 1rem;
+    margin-top: 4em;
+}
+
+.fb-sez-button{
+    display: flex;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+  
+.info a{
+    text-decoration: none;
+    color: white;
+    border: 2px solid white;
+    padding: 23px 40px;
+    text-align: center;
+    font-weight: bold;
+}
+  
+.info a:hover{
+    color: #0b113b;
+    background-color: #00ffff;
+    border: none;
+    box-shadow: 0 0 10px #00FFFF;
+}
+  
+.button-fb{
+    margin-left: 20px;
+    
+}
+  
+.button-fb button{
+    height: 78px;
+    padding: 20px 50px;
+    font-size: 1em;
+    font-weight: bold;
+}
+  
+
+  
+.button-fb button i{
+    margin-left: 5px;
+}
+
+/*****************************
+*   Fine FeedBack
+* * */
+
+/*****************************
+*   FINE CSS!
+* * */
