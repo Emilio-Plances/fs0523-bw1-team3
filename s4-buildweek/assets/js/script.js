@@ -5,24 +5,6 @@ const button = welcomeSection.querySelector('.button');
 const containerBenchmark=Epiquestion.querySelector(`.container-benchmark`)
 const countdownNumber = containerBenchmark.querySelector('.countdown-number span');
 
-const circle=containerBenchmark.querySelector(`circle`);
-const domanda=containerBenchmark.querySelector(`.domanda`);
-const nextQuestion=containerBenchmark.querySelector(`.button`);
-const risposte=containerBenchmark.querySelector(`.risposte`);
-const questionCounter=containerBenchmark.querySelector(`.question-counter p`);
-let risposteEsatte=0;
-let countdown = 60;
-let i=0;
-/***********************************************
- *  WELCOME
- * * */
-
-checkbox.addEventListener('change', function() {
-    if(checkbox.checked){
-        button.classList.add ('able');
-    }else{ 
-        button.classList.remove ('able')};
-});
 
 button.addEventListener(`click`,()=>{
     if(!button.classList.contains(`able`)){
