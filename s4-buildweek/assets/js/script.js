@@ -2,6 +2,8 @@ const Epiquestion=document.querySelector(`#Epiquestion`)
 const welcomeSection=Epiquestion.querySelector(`.welcomeSection`);
 const checkbox = welcomeSection.querySelector('#checkbox');
 const button = welcomeSection.querySelector('.button');
+const numeroDomande=welcomeSection.querySelector(`#numeroDomande`);
+const difficolta=welcomeSection.querySelector(`#difficolta`);
 const containerBenchmark=Epiquestion.querySelector(`.container-benchmark`)
 const countdownNumber = containerBenchmark.querySelector('.countdown-number span');
 const circle=containerBenchmark.querySelector(`circle`);
@@ -10,7 +12,7 @@ const nextQuestion=containerBenchmark.querySelector(`.button`);
 const risposte=containerBenchmark.querySelector(`.risposte`);
 const questionCounter=containerBenchmark.querySelector(`.question-counter p`);
 const boxSpoiler=containerBenchmark.querySelector(`.box-spoiler`)
-const containerResult = document.querySelector(".container-result");
+const containerResult = Epiquestion.querySelector(".container-result");
 const buttonResult = containerResult.querySelector("button");
 const myChart = containerResult.querySelector('.my-chart');
 const slotEsatte=containerResult.querySelector(`.correct`);
@@ -23,12 +25,15 @@ const fbTextInput=containerFb.querySelector(`.fd-foo-text input`)
 let risposteEsatte=0;
 let countdown = 60;
 let i=0;
-
+countdownNumber.innerText = countdown;
 
 /***********************************************
- *  WELCOME
+ *  WELCOME + Benchmark
  * * */
+let confermaNumeroDomande;
+let confermaDifficolta;
 
+numeroDomande.value
 checkbox.addEventListener('change', function() {
     if(checkbox.checked){
         button.classList.add ('able');
@@ -40,64 +45,89 @@ button.addEventListener(`click`,()=>{
     if(!button.classList.contains(`able`)){
         return;
     }
+
+    /**************************************************
+ *  BENCHMARK
+    */
+    if(numeroDomande.value!=`` && !isNaN(numeroDomande.value) && numeroDomande.value>=5 && numeroDomande.value<=30){
+      confermaNumeroDomande=numeroDomande.value;
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Please enter a valid number',
+      })
+      numeroDomande.value=``;
+      return;
+    }
+
+    if(difficolta.value!=``){
+    
+      if(difficolta.value.toLowerCase()==`easy`||difficolta.value.toLowerCase()==`medium`||difficolta.value.toLowerCase()==`hard`){
+        confermaDifficolta=difficolta.value.toLowerCase();
+      }else{
+        difficolta.value=``;
+        Swal.fire({
+        icon: 'error',
+        title: 'Please enter a valid difficulty',  
+        })
+        return;
+      }
+      
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Please enter a valid difficulty',
+      })
+      difficolta.value=``;
+      return;
+    }
+      
     welcomeSection.remove()
     containerBenchmark.classList.remove(`hidden`);
-})
+    fetch(`https://opentdb.com/api.php?amount=${confermaNumeroDomande}&category=18&difficulty=${confermaDifficolta}`)
+    .then(res=>res.json())
+    .then(res=>{
 
-/**************************************************
- *  BENCHMARK
- */
-countdownNumber.innerText = countdown;
+      let domande=res.results;
+      console.log(domande);
+      next(i,domande);
+      domanda.innerHTML=domande[i].question;
 
+      setInterval(function() {
+        if(i<domande.length && !containerBenchmark.classList.contains(`hidden`)){
+          if(countdown==0){
+            countdown=61;
+            let sceltaFatta=getRisposta();
+            i++;
+            next(i,domande,sceltaFatta); 
+          }
+          countdown--
+          countdownNumber.innerText = countdown;
+          
+        }
+      }, 1000);
 
-
-/**************************************************+
- *  Sezione domande
- * * */
-
-fetch(`https://opentdb.com/api.php?amount=20&category=18&difficulty=hard`)
-.then(res=>res.json())
-.then(res=>{
-
-  let domande=res.results;
-  
-  next(i,domande);
-  domanda.innerHTML=domande[i].question;
-
-  setInterval(function() {
-    if(i<domande.length && !containerBenchmark.classList.contains(`hidden`)){
-      if(countdown==0){
-        countdown=61;
+      nextQuestion.addEventListener(`click`,()=>{
         let sceltaFatta=getRisposta();
-        i++;
-        next(i,domande,sceltaFatta); 
-      }
-      countdown--
-      countdownNumber.innerText = countdown;
-      
-    }
-  }, 1000);
 
-  nextQuestion.addEventListener(`click`,()=>{
-    let sceltaFatta=getRisposta();
-
-    if(sceltaFatta==''){
-      return;
-    }
-    circle.getAnimations().forEach((anim) => {
-    anim.cancel();
-    anim.play();
-    });
-    i++; 
-    countdown=61;
-    next(i,domande,sceltaFatta);
-    if(i==domande.length){
-      containerBenchmark.remove();
-      containerResult.classList.remove(`hidden`);
-      result(domande);
-      return;
-    } 
-  })
+        if(sceltaFatta==''){
+          return;
+        }
+        circle.getAnimations().forEach((anim) => {
+        anim.cancel();
+        anim.play();
+        });
+        i++; 
+        countdown=61;
+        next(i,domande,sceltaFatta);
+        if(i==domande.length){
+          containerBenchmark.remove();
+          containerResult.classList.remove(`hidden`);
+          result(domande);
+          return;
+        } 
+      })
+    })
 })
 
 function next(i,myArray,sceltaFatta) {
@@ -165,6 +195,7 @@ function getRisposta() {
   })
   return rispostaData;
 }
+
 /*********************************
  *    Inizio Results
  * * */
@@ -183,7 +214,9 @@ function result(myArray) {
   
   const risultati = [percentualeErrata, percentualeEsatta];
 
-  //Inizio Donut
+/*********************************
+ *    Inizio Donut
+ * * */
   new Chart(myChart, {
       type : 'doughnut',
       data : {
@@ -206,8 +239,9 @@ function result(myArray) {
       },
 
   });
-  //fine Donut
-
+  /*********************************
+   *    Fine Donut
+   * * */
   slotPercentualeEsatto.innerText=`${percentualeEsatta} %`
   slotFrazioneEsatto.innerText=`${risposteEsatte}/${myArray.length} questions`;
   
@@ -226,7 +260,6 @@ function result(myArray) {
       spanResultText.innerText=`You didn't pass the exam!`
       pResultText.innerText=`We'll send you the failure certificate in few minutes. Check your email (including promotions/spam folder)`
   }
-
   resultText.append(titoloResultText, spanResultText, pResultText);
 }
 

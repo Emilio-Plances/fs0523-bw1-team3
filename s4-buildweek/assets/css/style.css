@@ -4,15 +4,15 @@
 /****************************************
 *   Generali
 * * */
-
+body{
+    background-image: url(../img/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 #Epiquestion {
     font-family: 'Outfit', 'Helvetica Neue', sans-serif;
     font-size: 1.4rem;
     line-height: 1.5;
-    background-image: url(../img/bg.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
 }
 
 strong {
@@ -170,7 +170,21 @@ img {
     max-width: 400px;
     line-height: 0.8;
 }
-
+.selezione-difficolta{
+   font-size: 0.7em;
+   
+}
+.selezione-difficolta label{
+    display:block; 
+    margin-top: 20px;
+}
+.selezione-difficolta input{
+    width:50px;
+    height:20px;
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
+}
 /*************************************
 *   fine Welcome Section
 * * */
