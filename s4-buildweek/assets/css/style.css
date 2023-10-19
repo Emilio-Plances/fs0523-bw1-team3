@@ -177,6 +177,7 @@ img {
 .selezione-difficolta label{
     display:block; 
     margin-top: 20px;
+    margin-bottom: 5px;
 }
 .selezione-difficolta input{
     width:50px;

@@ -237,7 +237,6 @@ function result(myArray) {
           },
           cutout: 135
       },
-
   });
   /*********************************
    *    Fine Donut
@@ -251,7 +250,7 @@ function result(myArray) {
   slotEsatte.append(slotPercentualeEsatto,slotFrazioneEsatto);
   slotErrate.append(slotPercentualeErrato,slotFrazioneErrato);
 
-  if(risposteEsatte>=6){
+  if(percentualeEsatta>=60){
       titoloResultText.innerText=`CONGRATULATIONS!`
       spanResultText.innerText=`You passed the exam!`
       pResultText.innerText=`We'll send you the certificate in few minutes. Check your email (including promotions/spam folder)`
