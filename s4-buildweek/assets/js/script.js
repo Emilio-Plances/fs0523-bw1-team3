@@ -59,28 +59,9 @@ button.addEventListener(`click`,()=>{
       numeroDomande.value=``;
       return;
     }
-
-    if(difficolta.value!=``){
     
-      if(difficolta.value.toLowerCase()==`easy`||difficolta.value.toLowerCase()==`medium`||difficolta.value.toLowerCase()==`hard`){
-        confermaDifficolta=difficolta.value.toLowerCase();
-      }else{
-        difficolta.value=``;
-        Swal.fire({
-        icon: 'error',
-        title: 'Please enter a valid difficulty',  
-        })
-        return;
-      }
-      
-    }else{
-      Swal.fire({
-        icon: 'error',
-        title: 'Please enter a valid difficulty',
-      })
-      difficolta.value=``;
-      return;
-    }
+    confermaDifficolta=difficolta.value
+    
       
     welcomeSection.remove()
     containerBenchmark.classList.remove(`hidden`);

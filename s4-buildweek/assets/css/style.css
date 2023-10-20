@@ -85,8 +85,8 @@ img {
 .container{
     justify-content: space-between;
     align-items: center; 
-    padding-top: 100px;
-    padding-bottom: 100px;
+    
+    padding: 50px 0 ;
 }
   
 .checkbox-container {
@@ -170,22 +170,29 @@ img {
     max-width: 400px;
     line-height: 0.8;
 }
+
 .selezione-difficolta{
    font-size: 0.7em;
-   
+   width:400px;
 }
+
+.box{
+    margin: 20px 0;
+}
+
+.box select{
+    margin-left:10px;
+}
+
 .selezione-difficolta label{
-    display:block; 
-    margin-top: 20px;
-    margin-bottom: 5px;
+    margin: 20px 10px 5px 0;
 }
+
 .selezione-difficolta input{
     width:50px;
-    height:20px;
-    color: white;
-    background-color: transparent;
-    border: 2px solid white;
 }
+
+
 /*************************************
 *   fine Welcome Section
 * * */

@@ -33,11 +33,20 @@
                 </ul>
             </div>
 
-            <div class="selezione-difficolta">
-                <label for="numeroDomande">How many question? (From 5 to 30)</label>
-                <input type="text" id="numeroDomande" placeholder="10">
-                <label for="difficoltà">Difficulty? (Easy,Medium,Hard)</label>
-                <input type="text" id="difficolta" placeholder="Easy">
+            <div class="selezione-difficolta box">
+                <div class="numeroDomandeBox">
+                    <label for="numeroDomande">How many question? (From 5 to 30)</label>
+                    <input type="text" id="numeroDomande" >
+                </div>
+                <div class="difficoltaBox box">
+                    <label for="difficolta">Difficulty?
+                        <select name="difficolta" id="difficolta" form="carform">
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </label>
+                </div>
             </div>
 
             <div class="container flex">
@@ -78,7 +87,6 @@
             <div class="box-spoiler">
                 <div class="spoiler-risposta"></div>
             </div>
-            
         </div>
         <!--Fine sezione Benchmark -->
 
