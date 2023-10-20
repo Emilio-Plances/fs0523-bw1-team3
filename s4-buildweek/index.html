@@ -21,7 +21,7 @@
             </div>
         </div>
         <!--inizio sezione Welcome-->
-        <div class="welcomeSection">
+        <div class="welcomeSection white-text">
             <div class="textContainer">
                 <h4 class="title">Welcome to <strong>your exam</strong></h4>
                 <h6 class="subtitle">Instructions</h6>
@@ -51,12 +51,12 @@
 
             <div class="container flex">
                 <div class="checkbox-container flex">  
-                    <input type="checkbox" id="checkbox">
-                    <label for="checkbox">I promise to answer myself without help from anyone</label>
+                    <input class="point-me absolute" type="checkbox" id="checkbox">
+                    <label class="flex point-me" for="checkbox">I promise to answer myself without help from anyone</label>
                 </div>
                 
                 <div class="proceed flex">
-                    <button class="button">PROCEED</button>
+                    <button class="button white-text">PROCEED</button>
                 </div>
             </div>   
         </div>
@@ -65,111 +65,113 @@
         <!-- Inizio sezione Benchmark-->
         <div class="container-benchmark hidden">
             <div class="timer">
-                <div class="countdown">
-                    <div class="countdown-number">Seconds <span></span> Remaining</div>
-                    <svg>
-                    <circle r="90" cx="100" cy="100"></circle>
+                <div class="countdown align-center relative">
+                    <div class="countdown-number absolute white-text">Seconds 
+                        <span class="align-center"></span> Remaining
+                    </div>
+                    <svg class="absolute">
+                        <circle r="90" cx="100" cy="100"></circle>
                     </svg>
-                    <div class="white-circle"></div>
+                    <div class="white-circle absolute"></div>
                 </div>
             </div>
-            <div class="blocco-domande">
+            <div class="blocco-domande align-center relative white-text">
                 <div class="domanda"></div>
-                <div class="risposte"></div>
+                <div class="risposte flex"></div>
             </div>
             
-            <div class="footer-benchmark">
-                <div class="question-counter"><p></p></div>
-                <div class="next-question">
-                    <button class="button">Next <i class="fas fa-arrow-right"></i></button>
+            <div class="footer-benchmark relative flex">
+                <div class="question-counter absolute white-text"><p></p></div>
+                <div class="next-question absolute">
+                    <button class="button white-text">Next <i class="fas fa-arrow-right"></i></button>
                 </div>
             </div>
-            <div class="box-spoiler">
-                <div class="spoiler-risposta"></div>
+            <div class="box-spoiler align-center absolute flex">
+                <div class="spoiler-risposta  align-centerwhite-text"></div>
             </div>
         </div>
         <!--Fine sezione Benchmark -->
 
         <!--Inizio sezione Results -->
         <div class="container-result hidden">
-            <div class="titolo">
+            <div class="titolo align-center relative white-text">
                 <h4> Results</h4>
                 <h5>The summary of your answers:</h5>
             </div>
         
-            <div class="correctResultContainer">
-                <div class="correct ">
+            <div class="correctResultContainer flex">
+                <div class="correct align-center white-text">
                     <h4>Correct</h4>
                 </div>
                 <!-- Inizio donut-->
-                <div class="chart-container">
+                <div class="chart-container relative">
                     <canvas class="my-chart"></canvas>
-                    <div class="result-text"></div>
+                    <div class="result-text absolute white-text"></div>
                 </div>
                 <!-- Fine donut-->            
-                <div class="correct wrong item" >
+                <div class="correct align-center white-text wrong item" >
                     <h4>Wrong</h4>
                 </div>
             </div>
                
-            <div class="proceed-results flex">
-                <button class=" button able">RATE US</button>          
+            <div class="proceed-results relative flex">
+                <button class=" button white-text able">RATE US</button>          
             </div>
         </div>
         <!--Fine Result-->
 
         <!--Inizio FeedBack-->
         
-        <div class="container-fb-result hidden">
+        <div class="container-fb-result align-center white-text hidden">
             <div class="container-fb">
                 <div class="fb-text">
                     <h4>Tell us how it's going</h4>
                     <p>From 0 to 10, how likely are you to recommend EPICODE to a friend or a colleague?</p>
                 </div>
             
-                <div class="container-star">
+                <div class="container-star flex">
                     <div class="fb-star">
                         <input type="radio" name="star" id="star-10">
-                        <label for="star-10" class="fas fa-star"></label>
+                        <label for="star-10" class="fas fa-star point-me"></label>
                     
                         <input type="radio" name="star" id="star-9">
-                        <label for="star-9" class="fas fa-star"></label>
+                        <label for="star-9" class="fas fa-star point-me"></label>
                     
                         <input type="radio" name="star" id="star-8">
-                        <label for="star-8" class="fas fa-star"></label>
+                        <label for="star-8" class="fas fa-star point-me"></label>
                     
                         <input type="radio" name="star" id="star-7">
-                        <label for="star-7" class="fas fa-star"></label>
+                        <label for="star-7" class="fas fa-star point-me"></label>
                     
                         <input type="radio" name="star" id="star-6">
-                        <label for="star-6" class="fas fa-star"></label>
+                        <label for="star-6" class="fas fa-star point-me"></label>
                     
                         <input type="radio" name="star" id="star-5">
-                        <label for="star-5" class="fas fa-star"></label>
+                        <label for="star-5" class="fas fa-star point-me"></label>
                     
                         <input type="radio" name="star" id="star-4">
-                        <label for="star-4" class="fas fa-star"></label>
+                        <label for="star-4" class="fas fa-star point-me"></label>
                     
                         <input type="radio" name="star" id="star-3">
-                        <label for="star-3" class="fas fa-star"></label>
+                        <label for="star-3" class="fas fa-star point-me"></label>
                     
                         <input type="radio" name="star" id="star-2">
-                        <label for="star-2" class="fas fa-star"></label>
+                        <label for="star-2" class="fas fa-star point-me"></label>
                     
                         <input type="radio" name="star" id="star-1">
-                        <label for="star-1" class="fas fa-star"></label>
+                        <label for="star-1" class="fas fa-star point-me"></label>
                     </div>
                 </div>
                 <div class="fd-foo-text">
                     <p>Leave us on open feedback about your experience so far</p>
-                    <input type="text" name="text" placeholder="Write your comment here (Facoltative)">
+                    <input class="white-text" type="text" name="text" placeholder="Write your comment here (Facoltative)">
                 </div>
-                <div class="fb-sez-button">
+                <div class="fb-sez-button align-center flex">
                     <div class="info">
-                        <a href="#">MORE INFO</a>
+                        <a class="white-text align-center able" target="_blank" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">MORE INFO</a>
                     </div>
                     <div class="button-fb">
-                        <button class="button able">SUBMIT <i class="fas fa-arrow-right"></i></button>
+                        <button class="button able white-text">SUBMIT <i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
             </div>

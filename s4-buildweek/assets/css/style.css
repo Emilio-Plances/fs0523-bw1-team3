@@ -41,12 +41,30 @@ img {
     display:none;
 }
 
+.white-text{
+    color: white;
+}
+
+.point-me{
+    cursor: pointer;
+}
+
+.absolute{
+    position: absolute;
+}
+
+.relative{
+    position: relative;
+}
+
+.align-center{
+    text-align: center;
+}
 /**************************************************
 *   Welcome Section
 * * */
 
 .welcomeSection {
-    color: white;
     margin-left: 4em;
     width:1000px;
     line-height: 27px;
@@ -85,7 +103,6 @@ img {
 .container{
     justify-content: space-between;
     align-items: center; 
-    
     padding: 50px 0 ;
 }
   
@@ -95,17 +112,9 @@ img {
     font-size: 0.8em;
     width: 1000px;
   }
-  
-.checkbox-container label{
-    cursor:pointer;
-    display:flex;
-}
 
 .checkbox-container input[type="checkbox"]{
-    cursor: pointer;
     opacity: 0;
-    position: absolute;
-    
 }
 .checkbox-container label:before{
     
@@ -144,7 +153,6 @@ img {
     font-weight: bold;
     background: transparent;
     border: 2px solid white;
-    color: white;
     padding:15px;
 }
 
@@ -203,13 +211,10 @@ img {
 *   Domande/risposte
 * * */  
 .blocco-domande{
-    color:white;
     width:800px;
     height:300px;
     margin: 0 auto;
-    position: relative;
     margin-bottom: 150px;
-    text-align: center;
 }
 
 .domanda{
@@ -218,7 +223,6 @@ img {
 }
 
 .risposte{
-    display: flex;
     flex-wrap: wrap;
     margin-bottom: 100px;
 }
@@ -242,16 +246,12 @@ img {
 *   footer benchmark
 * * */
 .footer-benchmark{
-    position:relative;
-    display: flex;
     width:1400px;
     height: 100px;
     margin:auto;
 }
 
 .question-counter{
-    color:white;
-    position: absolute;
     left:0;
     font-weight:bolder;
 }
@@ -263,7 +263,6 @@ img {
 .next-question{
     width:300px;
     font-weight: bold;
-    position: absolute;
     right:0;
 }
 
@@ -288,16 +287,12 @@ img {
 }
 
 .countdown { 
-    position: relative;
     margin: auto;
     height: 100px;
     width: 50px;
-    text-align: center;
 }
 
 .countdown-number {
-    color: white;
-    position: absolute;
     font-size: 1em;
     top: 40px;
     right:46px;
@@ -305,13 +300,11 @@ img {
 }
 
 .countdown-number span{
-    text-align: center;
     font-size:2.2em;
     font-weight: bold;
 }
 
 svg {
-    position: absolute;
     top: 0;
     right: 0;
     width: 200px;
@@ -335,16 +328,12 @@ svg circle {
     border: 17px solid rgba(255,255,255,0.8);
     width:162px; 
     height: 162px;
-    position: absolute;
     right: 2px;
     top:1px;
     z-index: 0;
 }
 .box-spoiler{
-    display: flex;
     flex-wrap: wrap;
-    position: absolute;
-    text-align: center;
     background-color: transparent;
     top:100px;
     left: 65px;
@@ -354,9 +343,7 @@ svg circle {
     display: none;
 }
 .spoiler-risposta{
-    text-align: center;
     font-weight: bold;
-    color:white;
     padding-right: 1px;
     background-color: transparent;
     width:15px;
@@ -373,9 +360,6 @@ svg circle {
 * * */
 
 .titolo {
-    color: white;
-    text-align: center;
-    position: relative;
     left: 15px;
     width: 500px;
     margin: auto;
@@ -393,8 +377,6 @@ svg circle {
   
 .correct {
     margin: 150px 100px 0 100px;
-    text-align: center;
-    color: white;
     align-items: center;
     line-height: 50px;
     text-align: start;
@@ -416,18 +398,14 @@ svg circle {
 }
   
 .correctResultContainer{
-    
-    display: flex;
     margin: 0 auto;
 }
 
 .result-text{
-    position: absolute;
     top:129px;
     left:113px;
     font-size: 0.77em;
     width: 200px;
-    color: white;
     font-weight: bold;
 }
  
@@ -442,7 +420,6 @@ svg circle {
 }
 
 .proceed-results{
-    position: relative;
     left:13px;
     height: 65px;
     margin-left: 300px;
@@ -453,30 +430,21 @@ svg circle {
     
 }
 
-  
-/*****************************
-*   Inizio Donut
-* * */
-
 .chart-container{
-    position: relative;
     width: 400px;
     margin: 0 auto;
     margin-top: 50px;
 }
-/*****************************
-*   Fine Donut
-* * */
+
 /*****************************
 *   Fine Results
 * * */
+
 /*****************************
 *   Inizio FeedBack
 * * */
   
 .container-fb-result{
-    text-align: center;
-    color: white;
     line-height: 50px;
 }
   
@@ -494,7 +462,6 @@ svg circle {
 }
   
 .container-star {
-    display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 2em;
@@ -536,7 +503,6 @@ svg circle {
     background: transparent;
     border: none;
     border-bottom: 2px solid #c2128d;
-    color: white;
     padding-left: 25px;
     outline: 0;
     font-size: 1rem;
@@ -544,30 +510,20 @@ svg circle {
 }
 
 .fb-sez-button{
-    display: flex;
     margin-top: 60px;
     margin-bottom: 60px;
-    text-align: center;
     align-items: center;
     justify-content: center;
 }
   
 .info a{
     text-decoration: none;
-    color: white;
     border: 2px solid white;
     padding: 23px 40px;
-    text-align: center;
     font-weight: bold;
 }
   
-.info a:hover{
-    color: #0b113b;
-    background-color: #00ffff;
-    border: none;
-    box-shadow: 0 0 10px #00FFFF;
-}
-  
+
 .button-fb{
     margin-left: 20px;
     
@@ -579,9 +535,7 @@ svg circle {
     font-size: 1em;
     font-weight: bold;
 }
-  
 
-  
 .button-fb button i{
     margin-left: 5px;
 }
