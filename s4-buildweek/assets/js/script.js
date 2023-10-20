@@ -1,9 +1,11 @@
-const Epiquestion=document.querySelector(`#Epiquestion`)
+const Epiquestion=document.querySelector(`#Epiquestion`);
+
 const welcomeSection=Epiquestion.querySelector(`.welcomeSection`);
 const checkbox = welcomeSection.querySelector('#checkbox');
 const button = welcomeSection.querySelector('.button');
 const numeroDomande=welcomeSection.querySelector(`#numeroDomande`);
 const difficolta=welcomeSection.querySelector(`#difficolta`);
+
 const containerBenchmark=Epiquestion.querySelector(`.container-benchmark`)
 const countdownNumber = containerBenchmark.querySelector('.countdown-number span');
 const circle=containerBenchmark.querySelector(`circle`);
@@ -11,17 +13,20 @@ const domanda=containerBenchmark.querySelector(`.domanda`);
 const nextQuestion=containerBenchmark.querySelector(`.button`);
 const risposte=containerBenchmark.querySelector(`.risposte`);
 const questionCounter=containerBenchmark.querySelector(`.question-counter p`);
-const boxSpoiler=containerBenchmark.querySelector(`.box-spoiler`)
+const boxSpoiler=containerBenchmark.querySelector(`.box-spoiler`);
+
 const containerResult = Epiquestion.querySelector(".container-result");
 const buttonResult = containerResult.querySelector("button");
 const myChart = containerResult.querySelector('.my-chart');
 const slotEsatte=containerResult.querySelector(`.correct`);
 const slotErrate=containerResult.querySelector(`.wrong`);
 const resultText=containerResult.querySelector(`.result-text`);
+
 const containerFb = Epiquestion.querySelector(".container-fb-result");
 const resetButton = containerFb.querySelector('.button-fb');
 const fbStar=containerFb.querySelector('.fb-star');
-const fbTextInput=containerFb.querySelector(`.fd-foo-text input`)
+const fbTextInput=containerFb.querySelector(`.fd-foo-text input`);
+
 let risposteEsatte=0;
 let countdown = 60;
 let i=0;
@@ -47,7 +52,7 @@ button.addEventListener(`click`,()=>{
     }
 
     /**************************************************
- *  BENCHMARK
+    *  BENCHMARK
     */
     if(numeroDomande.value!=`` && !isNaN(numeroDomande.value) && numeroDomande.value>=5 && numeroDomande.value<=30){
       confermaNumeroDomande=numeroDomande.value;
@@ -59,16 +64,14 @@ button.addEventListener(`click`,()=>{
       numeroDomande.value=``;
       return;
     }
+
+    confermaDifficolta=difficolta.value;
     
-    confermaDifficolta=difficolta.value
-    
-      
     welcomeSection.remove()
     containerBenchmark.classList.remove(`hidden`);
     fetch(`https://opentdb.com/api.php?amount=${confermaNumeroDomande}&category=18&difficulty=${confermaDifficolta}`)
     .then(res=>res.json())
     .then(res=>{
-
       let domande=res.results;
       console.log(domande);
       next(i,domande);
@@ -84,7 +87,6 @@ button.addEventListener(`click`,()=>{
           }
           countdown--
           countdownNumber.innerText = countdown;
-          
         }
       }, 1000);
 
@@ -110,6 +112,54 @@ button.addEventListener(`click`,()=>{
       })
     })
 })
+
+/*********************************
+*    Inizio Results
+* * */
+
+buttonResult.addEventListener('click',() =>{
+  containerResult.remove();
+  containerFb.classList.remove("hidden");
+  return;
+});
+
+/*********************************
+*    Fine Results
+* * */
+
+/*********************************
+*    Inizio Feedback
+* * */
+fbStar.addEventListener(`change`,()=>{
+  resetButton.classList.add(`able`);
+})
+
+resetButton.addEventListener('click', function () {
+  if(!resetButton.classList.contains(`able`)){
+    Swal.fire({
+      icon: 'error',
+      title: 'Please leave a feedback',
+    })
+    return;
+  }
+
+  console.log(fbTextInput.value);
+
+  resetCommento(); 
+  resetStarRating(); 
+  resetButton.classList.remove(`able`)
+  Swal.fire({
+    icon: 'success',
+    title: 'Thank for FeedBack',
+  })
+});
+
+/*********************************
+ *    Fine Feedback
+ * * */
+/***********************************
+ *  Funzioni Esterne
+ * * */
 
 function next(i,myArray,sceltaFatta) {
   let newArray=[];
@@ -177,9 +227,21 @@ function getRisposta() {
   return rispostaData;
 }
 
-/*********************************
- *    Inizio Results
- * * */
+function resetCommento() {
+  const commento = containerFb.querySelector('input[name="text"]');
+  if (commento) {
+      commento.value = ''; 
+  }
+}
+
+function resetStarRating() {
+  const starInputs = containerFb.querySelectorAll('input[name="star"]');
+  if (starInputs) {
+      starInputs.forEach(input => {
+          input.checked = false; 
+      });
+  }
+}
 
 function result(myArray) {
   let percentualeEsatta=(risposteEsatte*100)/myArray.length;
@@ -242,64 +304,6 @@ function result(myArray) {
   }
   resultText.append(titoloResultText, spanResultText, pResultText);
 }
-
-buttonResult.addEventListener('click',() =>{
-  containerResult.remove();
-  containerFb.classList.remove("hidden");
-  return;
-});
-
-/*********************************
- *    Fine Results
- * * */
-
-/*********************************
- *    Inizio Feedback
- * * */
-fbStar.addEventListener(`change`,()=>{
-  resetButton.classList.add(`able`);
-})
-
-resetButton.addEventListener('click', function () {
-  if(!resetButton.classList.contains(`able`)){
-    Swal.fire({
-      icon: 'error',
-      title: 'Please leave a feedback',
-    })
-    return;
-  }
-
-  console.log(fbTextInput.value);
-
-  resetCommento(); 
-  resetStarRating(); 
-  resetButton.classList.remove(`able`)
-  Swal.fire({
-    icon: 'success',
-    title: 'Thank for FeedBack',
-  })
-});
-
-function resetCommento() {
-  const commento = containerFb.querySelector('input[name="text"]');
-  if (commento) {
-      commento.value = ''; 
-  }
-}
-
-function resetStarRating() {
-  const starInputs = containerFb.querySelectorAll('input[name="star"]');
-  if (starInputs) {
-      starInputs.forEach(input => {
-          input.checked = false; 
-      });
-  }
-}
-
-/*********************************
- *    Fine Feedback
- * * */
-
 /*********************************
  *    FINE JS
  * * */
