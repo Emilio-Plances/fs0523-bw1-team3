@@ -274,6 +274,7 @@ function resetStarRating() {
   }
 }
 
+
 /*********************************
  *    Fine Feedback
  * * */
